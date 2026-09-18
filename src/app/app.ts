@@ -10,4 +10,15 @@ import { Home } from './home/home';
 })
 export class App {
   protected readonly title = signal('my-first-angular-app');
+  
+  protected readonly menuOpen = signal<boolean>(false);
+
+  protected toggleMenu(): void {
+    this.menuOpen.update((open) => !open);
+  }
+
+  protected closeMenu(): void {
+    this.menuOpen.set(false);
+  }
+
 }

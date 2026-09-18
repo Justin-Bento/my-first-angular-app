@@ -7,10 +7,40 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<main>
+<header class="bg-gray-200 p-6">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-0">
+    <div class="flex items-center justify-between">
+      <a href="/">Company Logo</a>
+      <button
+        class="lg:hidden hover:cursor-pointer hover:underline"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="main-nav"
+      >
+        Menu
+      </button>
+    </div>
+
+    <nav
+      id="main-nav"
+      class="lg:flex items-center lg:justify-end"
+      [class.hidden]="!menuOpen()"
+    >
+      <ul class="flex flex-col lg:flex-row lg:items-center gap-4">
+        <li><a href="/" (click)="closeMenu()">Home</a></li>
+        <li><a href="/about" (click)="closeMenu()">About</a></li>
+        <li><a href="/contact" (click)="closeMenu()">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="min-h-dvh p-6">
   <router-outlet />
 </main>
 
+<footer class="bg-gray-200 p-6">
+
+</footer>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
@@ -18,5 +48,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
