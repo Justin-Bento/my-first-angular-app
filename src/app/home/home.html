@@ -27,13 +27,32 @@
 
 <section class="mt-30">
   <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight">Featured Beans</h2>
-  @for (item of featuredBeans; track $index) {
-  <div class="mt-16 grid grid-cols-1 items-center gap-8 sm:grid-cols-2">
-    <img [src]="item.media.src" 
-      [alt]="item.media.alt"
-      [class]="$odd ? 'sm:order-last' : ''"
+  @for (item of featuredBeans; track item.title) {
+  <article class="mt-16 grid grid-cols-1 items-center gap-8 sm:grid-cols-2 lg:gap-16">
+    <img [src]="item.media.src" [alt]="item.media.alt" [class]="$odd ? 'sm:order-last' : ''"
       class="aspect-square w-full rounded-2xl bg-gray-200 object-cover object-center">
-    <h3 class="text-2xl font-semibold tracking-tight">{{item.title }}</h3>
-  </div>
+
+    <div class="flex flex-col gap-4">
+      <p class="text-sm font-semibold tracking-widest text-yellow-900 uppercase">
+        {{ item.details.origin }}
+      </p>
+      <h3 class="text-3xl font-semibold tracking-tight">{{ item.title }}</h3>
+      <span class="w-fit rounded-full bg-yellow-900/10 px-3 py-1 text-sm font-medium text-yellow-900">
+        {{ item.details.roast }} roast
+      </span>
+      <p class="text-base text-gray-600">Tasting notes: {{ item.details.notes }}</p>
+
+      <div class="mt-2 flex items-center justify-between gap-4 border-t border-gray-200 pt-4">
+        <p class="text-xl font-semibold">
+          {{ item.details.price }}
+          <span class="text-sm font-normal text-gray-500">/ {{ item.details.weight }}g</span>
+        </p>
+        <button type="button"
+          class="cursor-pointer rounded-lg bg-yellow-900 px-5 py-2.5 text-sm/6 font-bold text-white hover:bg-yellow-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-900">
+          Order
+        </button>
+      </div>
+    </div>
+  </article>
   }
 </section>

@@ -6,6 +6,13 @@ interface featuredBean {
     src: string,
     alt: string
   }
+  details: {
+    origin: string,
+    roast: string,
+    notes: string,
+    price: number,
+    weight: number
+  }
 }
 @Component({
   imports: [],
@@ -20,6 +27,13 @@ export class Home {
       media: {
         src: "https://images.unsplash.com/photo-1610899510324-268e41ac648c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Bag of Sunrise Blend coffee beans"
+      },
+      details: {
+        origin: "Colombia & Brazil",
+        roast: "Medium",
+        notes: "milk chocolate, toasted almond, caramel",
+        price: 16.50,
+        weight: 340
       }
     },
     {
@@ -27,6 +41,13 @@ export class Home {
       media: {
         src: "https://images.unsplash.com/photo-1608519498408-9e3ff4da34c0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Bag of Highland Reserve coffee beans"
+      },
+      details: {
+        origin: "Ethiopia, Yirgacheffe",
+        roast: "Light",
+        notes: "blueberry, jasmine, lemon zest",
+        price: 19.00,
+        weight: 340
       }
     },
     {
@@ -34,6 +55,13 @@ export class Home {
       media: {
         src: "https://images.unsplash.com/photo-1672854824506-da82b4191b18?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGNvZmZlJTIwYmFnfGVufDB8fDB8fHww",
         alt: "Bag of Midnight Roast coffee beans"
+      },
+      details: {
+        origin: "Sumatra",
+        roast: "Dark",
+        notes: "dark cocoa, cedar, brown sugar",
+        price: 17.00,
+        weight: 340
       }
     }
   ]
