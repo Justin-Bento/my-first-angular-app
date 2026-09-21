@@ -18,6 +18,12 @@ interface features {
   title: string,
   description: string
 }
+interface testimonials {
+  quote: string
+  author: string
+  role: string
+}
+
 @Component({
   imports: [],
   selector: 'app-home',
@@ -87,4 +93,21 @@ export class Home {
       description: "Weekly, biweekly, or monthly. Pause anytime."
     },
   ]
+ protected readonly testimonials: readonly testimonials[] = [
+  {
+    quote: "The Sunrise Blend has completely replaced my morning café run. Smooth, rich, and always fresh",
+    author: "Maya R",
+    role: "subscriber since 2024"
+  },
+  {
+    quote: "Ember & Bean supplies our cafe, and our customers ask what changed. It's the beans",
+    author: "Daniel K",
+    role: "owner of The Corner Table"
+  },
+  {
+    quote: "The Highland Reserve tastes like a fruit bowl in the best way. Absolutely worth it.",
+    author: "Priya S", 
+    role: "home brewer"
+  }
+ ]
 }

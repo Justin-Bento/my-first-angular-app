@@ -71,3 +71,19 @@
     }
   </dl>
 </section>
+
+<section class="mt-30">
+  <h2 class="capitalize text-3xl font-semibold tracking-tight text-yellow-950">What our customers say</h2>
+  <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
+    @for (testimonial of testimonials; track testimonial.author) {
+    <figure class="border-l-4 border-yellow-900 pl-6">
+      <blockquote class="text-base text-gray-700">
+        <p>"{{ testimonial.quote }}"</p>
+      </blockquote>
+      <figcaption class="mt-4 text-sm text-gray-600">
+        <span class="font-semibold text-yellow-950">{{ testimonial.author }}</span>, {{ testimonial.role }}
+      </figcaption>
+    </figure>
+    }
+  </div>
+</section>
