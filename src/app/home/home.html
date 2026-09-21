@@ -100,3 +100,22 @@
     Start your subscription
   </a>
 </section>
+
+<!-- Latest from the blog -->
+<section class="mt-24">
+  <div class="flex items-end justify-between gap-4">
+    <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight text-yellow-950">Latest from the blog</h2>
+    <a routerLink="/blog" class="text-sm font-bold text-yellow-900 hover:underline">View all posts</a>
+  </div>
+  <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
+    @for (post of blogPosts; track post.slug) {
+    <article>
+      <h3 class="text-xl font-semibold tracking-tight text-yellow-950">
+        <a [routerLink]="['/blog', post.slug]" class="hover:underline">{{ post.title }}</a>
+      </h3>
+      <p class="mt-2 text-base text-gray-600">{{ post.summary }}</p>
+      <p class="mt-3 text-sm text-gray-500">{{ post.readTime }} min read</p>
+    </article>
+    }
+  </div>
+</section>

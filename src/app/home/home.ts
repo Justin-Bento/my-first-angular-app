@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 interface featuredBean {
   title: string,
@@ -24,8 +25,15 @@ interface testimonials {
   role: string
 }
 
+interface blogPosts {
+  title: string,
+  summary: string,
+  readTime: number,
+  slug: string
+}
+
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-home',
   styleUrl: './home.css',
   templateUrl: './home.html',
@@ -80,10 +88,10 @@ export class Home {
       title: "Roasted to Order",
       description: "Your beans are roasted the week you order, never sitting on a shelf."
     },
-     {
+    {
       title: "Ethically Sourced",
       description: "We pay above fair-trade prices and know every farm by name."
-    },   
+    },
     {
       title: "Local & Sustainable",
       description: "Compostable packaging and bike delivery within the city."
@@ -93,21 +101,42 @@ export class Home {
       description: "Weekly, biweekly, or monthly. Pause anytime."
     },
   ]
- protected readonly testimonials: readonly testimonials[] = [
-  {
-    quote: "The Sunrise Blend has completely replaced my morning café run. Smooth, rich, and always fresh",
-    author: "Maya R",
-    role: "subscriber since 2024"
-  },
-  {
-    quote: "Ember & Bean supplies our cafe, and our customers ask what changed. It's the beans",
-    author: "Daniel K",
-    role: "owner of The Corner Table"
-  },
-  {
-    quote: "The Highland Reserve tastes like a fruit bowl in the best way. Absolutely worth it.",
-    author: "Priya S", 
-    role: "home brewer"
-  }
- ]
+  protected readonly testimonials: readonly testimonials[] = [
+    {
+      quote: "The Sunrise Blend has completely replaced my morning café run. Smooth, rich, and always fresh",
+      author: "Maya R",
+      role: "subscriber since 2024"
+    },
+    {
+      quote: "Ember & Bean supplies our cafe, and our customers ask what changed. It's the beans",
+      author: "Daniel K",
+      role: "owner of The Corner Table"
+    },
+    {
+      quote: "The Highland Reserve tastes like a fruit bowl in the best way. Absolutely worth it.",
+      author: "Priya S",
+      role: "home brewer"
+    }
+  ]
+  protected readonly blogPosts: readonly blogPosts[] = [
+    {
+      title: "How to Brew the Perfect Pour-Over at Home",
+      summary: "A step-by-step guide with ratios and timing.",
+      readTime: 5,
+      slug: ""
+    },
+    {
+      title: "From Farm to Cup: Visiting Our Partners in Ethiopia",
+      summary: "What we learned on this year's sourcing trip.",
+      readTime: 7,
+      slug: ""
+    },
+    {
+      title: "Light vs. Dark Roast: What's the Real Difference?",
+      summary: "It's not about caffeine. Here's what actually changes.",
+      readTime: 4,
+      slug: ""
+    },
+
+  ]
 }
