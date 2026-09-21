@@ -56,3 +56,18 @@
   </article>
   }
 </section>
+
+  <!-- Why choose us -->
+  <section class="mt-24">
+    <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight text-yellow-950 capitalize">
+      Why choose us
+    </h2>
+    <dl class="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2">
+      @for (feature of features; track feature.title) {
+        <div>
+          <dt class="text-xl font-semibold tracking-tight text-yellow-950">{{ feature.title }}</dt>
+          <dd class="mt-2 text-base text-gray-600">{{ feature.description }}</dd>
+        </div>
+      }
+    </dl>
+  </section>

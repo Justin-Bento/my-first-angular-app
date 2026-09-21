@@ -14,6 +14,10 @@ interface featuredBean {
     weight: number
   }
 }
+interface features {
+  title: string,
+  description: string
+}
 @Component({
   imports: [],
   selector: 'app-home',
@@ -64,5 +68,23 @@ export class Home {
         weight: 340
       }
     }
+  ]
+  protected readonly features: readonly features[] = [
+    {
+      title: "Roasted to Order",
+      description: "Your beans are roasted the week you order, never sitting on a shelf."
+    },
+     {
+      title: "Ethically Sourced",
+      description: "We pay above fair-trade prices and know every farm by name."
+    },   
+    {
+      title: "Local & Sustainable",
+      description: "Compostable packaging and bike delivery within the city."
+    },
+    {
+      title: "Flexible Subscriptions",
+      description: "Weekly, biweekly, or monthly. Pause anytime."
+    },
   ]
 }
