@@ -1,121 +1,146 @@
-<section class="grid grid-cols-1 gap-12">
-  <div class="flex flex-col justify-center md:items-center md:text-center">
-    <h1
-      class="max-w-4xl text-3xl leading-tight font-semibold tracking-tight text-balance text-primary md:text-5xl lg:leading-[1.1] xl:tracking-tighter">
-      Small-Batch Coffee, Roasted Fresh Every Week!
-    </h1>
-    <p class="mt-3 max-w-4xl text-base text-balance text-foreground sm:text-lg md:mt-6">
-      We source directly from farmers, roast in tiny batches, and deliver to your door within days of roasting.
-    </p>
-    <div class="mt-6 flex flex-col items-start gap-3 md:flex-row md:items-center md:gap-6">
-      <button type="button"
-        class="w-full cursor-pointer rounded-lg bg-yellow-900 px-5 py-2.5 text-sm/6 font-bold text-white hover:bg-yellow-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-900 md:w-auto">
-        Order Now
-      </button>
-      <button type="button"
-        class="w-full cursor-pointer rounded-lg border border-gray-200 px-5 py-2.5 text-sm/6 font-bold text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400 md:w-auto">
-        Our Story
-      </button>
-    </div>
-  </div>
-  <img
-    src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    alt="A cup of freshly brewed coffee"
-    class="aspect-square w-full rounded-2xl bg-gray-200 object-cover object-center md:aspect-video">
-</section>
-
-
-<section class="mt-30">
-  <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight">Featured Beans</h2>
-  @for (item of featuredBeans; track item.title) {
-  <article class="mt-16 grid grid-cols-1 items-center gap-8 sm:grid-cols-2 lg:gap-16">
-    <img [src]="item.media.src" [alt]="item.media.alt" [class]="$odd ? 'sm:order-last' : ''"
-      class="aspect-square w-full rounded-2xl bg-gray-200 object-cover object-center">
-
-    <div class="flex flex-col gap-4">
-      <p class="text-sm font-semibold tracking-widest text-yellow-900 uppercase">
-        {{ item.details.origin }}
+<main class=" space-y-32 max-w-7xl mx-auto my-32">
+  <section class="grid grid-cols-1 gap-12">
+    <div class="flex flex-col justify-center md:items-center md:text-center">
+      <h1
+        class="max-w-4xl text-3xl leading-tight font-semibold tracking-tight text-balance text-primary md:text-5xl lg:leading-[1.1] xl:tracking-tighter"
+      >
+        Small-Batch Coffee, Roasted Fresh Every Week!
+      </h1>
+      <p class="mt-3 max-w-4xl text-base text-balance text-foreground sm:text-lg md:mt-6">
+        We source directly from farmers, roast in tiny batches, and deliver to your door within days
+        of roasting.
       </p>
-      <h3 class="text-3xl font-semibold tracking-tight">{{ item.title }}</h3>
-      <span class="w-fit rounded-full bg-yellow-900/10 px-3 py-1 text-sm font-medium text-yellow-900">
-        {{ item.details.roast }} roast
-      </span>
-      <p class="text-base text-gray-600">Tasting notes: {{ item.details.notes }}</p>
-
-      <div class="mt-2 flex items-center justify-between gap-4 border-t border-gray-200 pt-4">
-        <p class="text-xl font-semibold">
-          {{ item.details.price }}
-          <span class="text-sm font-normal text-gray-500">/ {{ item.details.weight }}g</span>
-        </p>
-        <button type="button"
-          class="cursor-pointer rounded-lg bg-yellow-900 px-5 py-2.5 text-sm/6 font-bold text-white hover:bg-yellow-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-900">
-          Order
+      <div class="mt-6 flex flex-col items-start gap-3 md:flex-row md:items-center md:gap-6">
+        <button
+          type="button"
+          class="w-full cursor-pointer rounded-lg bg-yellow-900 px-5 py-2.5 text-sm/6 font-bold text-white hover:bg-yellow-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-900 md:w-auto"
+        >
+          Order Now
+        </button>
+        <button
+          type="button"
+          class="w-full cursor-pointer rounded-lg border border-gray-200 px-5 py-2.5 text-sm/6 font-bold text-gray-700 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-400 md:w-auto"
+        >
+          Our Story
         </button>
       </div>
     </div>
-  </article>
-  }
-</section>
+    <img
+      src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="A cup of freshly brewed coffee"
+      class="aspect-square w-full rounded-2xl bg-gray-200 object-cover object-center md:aspect-video"
+    />
+  </section>
 
-<!-- Why choose us -->
-<section class="mt-24">
-  <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight text-yellow-950 capitalize">
-    Why choose us
-  </h2>
-  <dl class="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2">
-    @for (feature of features; track feature.title) {
-    <div>
-      <dt class="text-xl font-semibold tracking-tight text-yellow-950">{{ feature.title }}</dt>
-      <dd class="mt-2 text-base text-gray-600">{{ feature.description }}</dd>
+  <section class="mt-30">
+    <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight">Featured Beans</h2>
+    @for (item of featuredBeans; track item.title) {
+      <article class="mt-16 grid grid-cols-1 items-center gap-8 sm:grid-cols-2 lg:gap-16">
+        <img
+          [src]="item.media.src"
+          [alt]="item.media.alt"
+          [class]="$odd ? 'sm:order-last' : ''"
+          class="aspect-square w-full rounded-2xl bg-gray-200 object-cover object-center"
+        />
+
+        <div class="flex flex-col gap-4">
+          <p class="text-sm font-semibold tracking-widest text-yellow-900 uppercase">
+            {{ item.details.origin }}
+          </p>
+          <h3 class="text-3xl font-semibold tracking-tight">{{ item.title }}</h3>
+          <span
+            class="w-fit rounded-full bg-yellow-900/10 px-3 py-1 text-sm font-medium text-yellow-900"
+          >
+            {{ item.details.roast }} roast
+          </span>
+          <p class="text-base text-gray-600">Tasting notes: {{ item.details.notes }}</p>
+
+          <div class="mt-2 flex items-center justify-between gap-4 border-t border-gray-200 pt-4">
+            <p class="text-xl font-semibold">
+              {{ item.details.price }}
+              <span class="text-sm font-normal text-gray-500">/ {{ item.details.weight }}g</span>
+            </p>
+            <button
+              type="button"
+              class="cursor-pointer rounded-lg bg-yellow-900 px-5 py-2.5 text-sm/6 font-bold text-white hover:bg-yellow-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-900"
+            >
+              Order
+            </button>
+          </div>
+        </div>
+      </article>
+    }
+  </section>
+
+  <!-- Why choose us -->
+  <section class="mt-24">
+    <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight text-yellow-950 capitalize">
+      Why choose us
+    </h2>
+    <dl class="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2">
+      @for (feature of features; track feature.title) {
+        <div>
+          <dt class="text-xl font-semibold tracking-tight text-yellow-950">{{ feature.title }}</dt>
+          <dd class="mt-2 text-base text-gray-600">{{ feature.description }}</dd>
+        </div>
+      }
+    </dl>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="mt-30">
+    <h2 class="capitalize text-3xl font-semibold tracking-tight text-yellow-950">
+      What our customers say
+    </h2>
+    <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
+      @for (testimonial of testimonials; track testimonial.author) {
+        <figure class="border-l-4 border-yellow-900 pl-6">
+          <blockquote class="text-base text-gray-700">
+            <p>"{{ testimonial.quote }}"</p>
+          </blockquote>
+          <figcaption class="mt-4 text-sm text-gray-600">
+            <span class="font-semibold text-yellow-950">{{ testimonial.author }}</span
+            >, {{ testimonial.role }}
+          </figcaption>
+        </figure>
+      }
     </div>
-    }
-  </dl>
-</section>
+  </section>
 
-<!-- Testimonials -->
-<section class="mt-30">
-  <h2 class="capitalize text-3xl font-semibold tracking-tight text-yellow-950">What our customers say</h2>
-  <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
-    @for (testimonial of testimonials; track testimonial.author) {
-    <figure class="border-l-4 border-yellow-900 pl-6">
-      <blockquote class="text-base text-gray-700">
-        <p>"{{ testimonial.quote }}"</p>
-      </blockquote>
-      <figcaption class="mt-4 text-sm text-gray-600">
-        <span class="font-semibold text-yellow-950">{{ testimonial.author }}</span>, {{ testimonial.role }}
-      </figcaption>
-    </figure>
-    }
-  </div>
-</section>
+  <!-- Subscription banner -->
+  <section class="mt-30 rounded-2xl bg-yellow-900 px-6 py-12 text-center sm:px-12">
+    <h2 class="text-3xl font-semibold tracking-tight text-white">Never run out of great coffee</h2>
+    <p class="mx-auto mt-3 max-w-2xl text-base text-yellow-50 sm:text-lg">
+      Subscribe and save 10% on every bag, with free local delivery.
+    </p>
+    <a
+      routerLink="/services"
+      class="mt-6 inline-block rounded-lg bg-white px-5 py-2.5 text-sm/6 font-bold text-yellow-950 hover:bg-yellow-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+    >
+      Start your subscription
+    </a>
+  </section>
 
-<!-- Subscription banner -->
-<section class="mt-30 rounded-2xl bg-yellow-900 px-6 py-12 text-center sm:px-12">
-  <h2 class="text-3xl font-semibold tracking-tight text-white">Never run out of great coffee</h2>
-  <p class="mx-auto mt-3 max-w-2xl text-base text-yellow-50 sm:text-lg">
-    Subscribe and save 10% on every bag, with free local delivery.
-  </p>
-  <a routerLink="/services"
-    class="mt-6 inline-block rounded-lg bg-white px-5 py-2.5 text-sm/6 font-bold text-yellow-950 hover:bg-yellow-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-    Start your subscription
-  </a>
-</section>
-
-<!-- Latest from the blog -->
-<section class="mt-24">
-  <div class="flex items-end justify-between gap-4">
-    <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight text-yellow-950">Latest from the blog</h2>
-    <a routerLink="/blog" class="text-sm font-bold text-yellow-900 hover:underline">View all posts</a>
-  </div>
-  <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
-    @for (post of blogPosts; track post.slug) {
-    <article>
-      <h3 class="text-xl font-semibold tracking-tight text-yellow-950">
-        <a [routerLink]="['/blog', post.slug]" class="hover:underline">{{ post.title }}</a>
-      </h3>
-      <p class="mt-2 text-base text-gray-600">{{ post.summary }}</p>
-      <p class="mt-3 text-sm text-gray-500">{{ post.readTime }} min read</p>
-    </article>
-    }
-  </div>
-</section>
+  <!-- Latest from the blog -->
+  <section class="mt-24">
+    <div class="flex items-end justify-between gap-4">
+      <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight text-yellow-950">
+        Latest from the blog
+      </h2>
+      <a routerLink="/blog" class="text-sm font-bold text-yellow-900 hover:underline"
+        >View all posts</a
+      >
+    </div>
+    <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
+      @for (post of blogPosts; track post.slug) {
+        <article>
+          <h3 class="text-xl font-semibold tracking-tight text-yellow-950">
+            <a [routerLink]="['/blog', post.slug]" class="hover:underline">{{ post.title }}</a>
+          </h3>
+          <p class="mt-2 text-base text-gray-600">{{ post.summary }}</p>
+          <p class="mt-3 text-sm text-gray-500">{{ post.readTime }} min read</p>
+        </article>
+      }
+    </div>
+  </section>
+</main>
