@@ -1,3 +1,82 @@
 <main class="min-h-dvh mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-  <p>services works!</p>
+  <section class="max-w-3xl">
+    <h1 class="text-4xl font-semibold tracking-tight text-yellow-950 md:text-5xl">Services</h1>
+    <p class="mt-4 text-base text-gray-600 sm:text-lg">
+      Beyond the bags on our shelf, we work with cafes, teams, and events who want good coffee
+      handled properly.
+    </p>
+  </section>
+
+  <section class="mt-16">
+    <div class="grid grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2">
+      @for (service of services; track service.title) {
+        <article class="border-t border-gray-200 pt-6">
+          <h2 class="text-2xl font-semibold tracking-tight text-yellow-950">{{ service.title }}</h2>
+          <p class="mt-2 text-base text-gray-600">{{ service.description }}</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600">
+            @for (feature of service.features; track feature) {
+              <li class="flex gap-2">
+                <span class="text-yellow-900">–</span>
+                <span>{{ feature }}</span>
+              </li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="mt-24">
+    <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight text-yellow-950">
+      Subscription plans
+    </h2>
+    <p class="mt-3 max-w-2xl text-base text-gray-600">
+      Pick a delivery rhythm that matches how much coffee your household actually drinks.
+    </p>
+
+    <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
+      @for (plan of plans; track plan.name) {
+        <div
+          class="flex flex-col gap-4 rounded-2xl border p-6"
+          [class.border-yellow-900]="plan.featured"
+          [class.border-gray-200]="!plan.featured"
+        >
+          <div>
+            <h3 class="text-xl font-semibold tracking-tight text-yellow-950">{{ plan.name }}</h3>
+            <p class="text-sm text-gray-500">{{ plan.frequency }}</p>
+          </div>
+
+          <p class="text-3xl font-semibold text-yellow-950">
+            {{ plan.price }}
+            <span class="text-sm font-normal text-gray-500">/ {{ plan.weight }}g bag</span>
+          </p>
+
+          <ul class="flex-1 space-y-2 text-sm text-gray-600">
+            @for (feature of plan.features; track feature) {
+              <li class="flex gap-2">
+                <span class="text-yellow-900">–</span>
+                <span>{{ feature }}</span>
+              </li>
+            }
+          </ul>
+
+          <button
+            type="button"
+            class="cursor-pointer rounded-lg px-5 py-2.5 text-sm/6 font-bold focus-visible:outline-2 focus-visible:outline-offset-2"
+            [class.bg-yellow-900]="plan.featured"
+            [class.text-white]="plan.featured"
+            [class.hover:bg-yellow-800]="plan.featured"
+            [class.focus-visible:outline-yellow-900]="plan.featured"
+            [class.border]="!plan.featured"
+            [class.border-gray-200]="!plan.featured"
+            [class.text-gray-700]="!plan.featured"
+            [class.hover:bg-gray-50]="!plan.featured"
+            [class.focus-visible:outline-gray-400]="!plan.featured"
+          >
+            Choose {{ plan.name.toLowerCase() }}
+          </button>
+        </div>
+      }
+    </div>
+  </section>
 </main>
