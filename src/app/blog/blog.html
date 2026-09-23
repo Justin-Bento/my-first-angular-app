@@ -1,20 +1,21 @@
-<p>blog works!</p>
-<section class="blog">
-  <h1>Blog</h1>
+<main class="">
+  <section class="blog">
+    <h1>Blog</h1>
 
-  @if (loading) {
-    <p>Loading posts…</p>
-  } @else if (error) {
-    <p class="error">{{ error }}</p>
-  } @else {
-    <ul class="grid grid-cols-2 gap-8">
-      @for (post of posts; track post.id) {
-        <li class="space-y-3 border p-6">
-          <h2 class="font-bold capitalize text-xl line-clamp-1">{{ post.title }}</h2>
-          <p class="line-clamp-3">{{ post.body }}</p>
-          <span class="post-meta">User #{{ post.userId }}</span>
-        </li>
-      }
-    </ul>
-  }
-</section>
+    @if (loading) {
+      <p>Loading posts…</p>
+    } @else if (error) {
+      <p class="error">{{ error }}</p>
+    } @else {
+      <ul class="grid grid-cols-2 gap-8">
+        @for (post of posts; track post.id) {
+          <li class="space-y-3 border p-6">
+            <h2 class="font-bold capitalize text-xl line-clamp-1">{{ post.title }}</h2>
+            <p class="line-clamp-3">{{ post.body }}</p>
+            <span class="post-meta">User #{{ post.userId }}</span>
+          </li>
+        }
+      </ul>
+    }
+  </section>
+</main>
