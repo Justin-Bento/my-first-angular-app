@@ -1,3 +1,60 @@
 <main class="min-h-dvh mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-  <p>about works!</p>
+  <section class="grid grid-cols-1 items-center gap-8 sm:grid-cols-2 lg:gap-16">
+    <img
+      src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="The roastery's drum roaster mid-batch"
+      class="aspect-square w-full rounded-2xl bg-gray-200 object-cover object-center"
+    />
+
+    <div class="flex flex-col gap-4">
+      <h1 class="text-4xl font-semibold tracking-tight text-yellow-950 md:text-5xl">Our story</h1>
+      <p class="text-base text-gray-600">
+        Ember &amp; Bean started in 2019 on a single 1kg roaster in a garage on Maple Street. We
+        were tired of coffee that hid where it came from, so we set out to roast small batches and
+        name every farm on the bag.
+      </p>
+      <p class="text-base text-gray-600">
+        Seven years later, we still roast in small batches, most weeks no more than a few days
+        before a bag ships. What's changed is the reach: we now work directly with growers across
+        three continents, and the shop on Maple Street has become a place where the neighborhood
+        starts its morning.
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-24">
+    <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight text-yellow-950">
+      What we stand for
+    </h2>
+    <dl class="mt-10 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-3">
+      @for (value of values; track value.title) {
+        <div>
+          <dt class="text-xl font-semibold tracking-tight text-yellow-950">{{ value.title }}</dt>
+          <dd class="mt-2 text-base text-gray-600">{{ value.description }}</dd>
+        </div>
+      }
+    </dl>
+  </section>
+
+  <section class="mt-24">
+    <h2 class="scroll-m-24 text-3xl font-semibold tracking-tight text-yellow-950">
+      The people behind the counter
+    </h2>
+    <div class="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-3">
+      @for (member of team; track member.name) {
+        <article>
+          <img
+            [src]="member.photo.src"
+            [alt]="member.photo.alt"
+            class="aspect-square w-full rounded-2xl bg-gray-200 object-cover object-center"
+          />
+          <h3 class="mt-4 text-xl font-semibold tracking-tight text-yellow-950">
+            {{ member.name }}
+          </h3>
+          <p class="text-sm font-semibold text-yellow-900">{{ member.role }}</p>
+          <p class="mt-2 text-base text-gray-600">{{ member.bio }}</p>
+        </article>
+      }
+    </div>
+  </section>
 </main>
