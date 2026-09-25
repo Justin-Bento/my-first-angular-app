@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 interface Post {
   id: number;
@@ -15,29 +16,28 @@ interface PostsResponse {
   limit: number;
 }
 
-
 @Component({
-  imports: [],
   selector: 'app-blog',
-  styleUrl: './blog.css',
+  imports: [RouterLink],
   templateUrl: './blog.html',
+  styleUrl: './blog.css',
 })
 export class Blog implements OnInit {
-  private http = inject(HttpClient);
+  private readonly http = inject(HttpClient);
 
-  posts: Post[] = [];
-  loading = true;
-  error: string | null = null;
+  protected readonly posts = signal<Post[]>([]);
+  protected readonly loading = signal(true);
+  protected readonly error = signal<string | null>(null);
 
   ngOnInit(): void {
     this.http.get<PostsResponse>('https://dummyjson.com/posts').subscribe({
       next: (response) => {
-        this.posts = response.posts;
-        this.loading = false;
+        this.posts.set(response.posts);
+        this.loading.set(false);
       },
       error: (err) => {
-        this.error = 'Failed to load posts';
-        this.loading = false;
+        this.error.set('Failed to load posts');
+        this.loading.set(false);
         console.error(err);
       },
     });
