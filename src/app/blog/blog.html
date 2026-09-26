@@ -1,6 +1,6 @@
 <main class="min-h-dvh mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-32">
   <section class="blog">
-    <h1>Blog</h1>
+    <h1 class="text-5xl font-medium text-gray-900 mb-6">Blog</h1>
     @if (loading()) {
     <p>Loading posts…</p>
     } @else if (error()) {
@@ -8,12 +8,12 @@
     } @else {
     <ul class="grid grid-cols-2 gap-8">
       @for (post of posts(); track post.id) {
-      <li class="space-y-3 border p-6">
-        <h2 class="font-bold capitalize text-xl line-clamp-1">
+      <li class="overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg p-6">
+        <h2 class="mt-0.5 text-lg text-gray-900 line-clamp-1">
           <a [routerLink]="['/blog', post.title]" class="line-clamp-1 hover:underline">{{ post.title }}</a>
         </h2>
-        <p class="line-clamp-3">{{ post.body }}</p>
-        <span class="post-meta">User #{{ post.userId }}</span>
+        <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">{{ post.body }}</p>
+        <span class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">User #{{ post.userId }}</span>
       </li>
       }
     </ul>
