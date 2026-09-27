@@ -9,21 +9,26 @@ export const routes: Routes = [
   {
     path: '',
     component: Home,
+    title: "Home"
   },
   {
     path: 'about',
     component: About,
+    title: "About"
   },
   {
     path: 'services',
     component: Services,
+    title: "Services"
   },
   {
     path: 'blog',
     component: Blog,
+    title: "Blog"
   },
   {
     path: 'blog/:slug',
     component: BlogPost,
+    title: (route) => decodeURIComponent(route.paramMap.get('title') ?? 'Blog'),
   },
 ];
