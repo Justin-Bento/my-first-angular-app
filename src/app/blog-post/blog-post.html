@@ -5,8 +5,10 @@
     } @else if (error()) {
     <p class="text-red-700" role="alert">{{ error() }}</p>
     } @else if (post(); as p) {
-    <h1 class="text-3xl font-semibold tracking-tight text-yellow-950 md:text-4xl">{{ p.title }}</h1>
-    <p class="mt-6 text-base text-gray-600">{{ p.body }}</p>
+    <article>
+      <h1 class="text-3xl font-semibold tracking-tight text-yellow-950 md:text-4xl">{{ p.title }}</h1>
+      <p class="mt-6 text-base text-gray-600">{{ p.body }}</p>
+    </article>
     } @else {
     <p class="text-gray-600">Post not found.</p>
     }
