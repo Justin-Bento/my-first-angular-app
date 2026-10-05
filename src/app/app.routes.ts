@@ -4,6 +4,7 @@ import { Home } from './home/home';
 import { Services } from './services/services';
 import { Blog } from './blog/blog';
 import { BlogPost } from './blog-post/blog-post';
+import { NotFound } from './not-found/not-found';
 
 export const routes: Routes = [
   {
@@ -31,4 +32,10 @@ export const routes: Routes = [
     component: BlogPost,
     title: (route) => decodeURIComponent(route.paramMap.get('title') ?? 'Blog'),
   },
+  { 
+    path: '**', 
+    component: NotFound, 
+    title: 'Page not found'
+  },
+
 ];
